@@ -1,20 +1,16 @@
 describe('Login Test Cases', ()=>{
 
     beforeEach(() => {
-        cy.visit('http://opensource-demo.orangehrmlive.com/');
+        cy.visit('/');
     })
 
-    it('Signs into OrangeHRM website', () =>{
-        cy.get('#txtUsername').type('admin');
-        cy.get('#txtPassword').type('admin123');
-        cy.get('#btnLogin').click();
+    it('Should Login into OrangeHRM website', () =>{
+        cy.login('admin', 'admin123');
         cy.get('#welcome').should('be.visible');
     });
 
-    it('Does not sign into OrangeHRM website', ()=>{
-        cy.get('#txtUsername').type('invalid');
-        cy.get('#txtPassword').type('credentials');
-        cy.get('#btnLogin').click();
+    it('Should not login into OrangeHRM website', ()=>{
+        cy.login('wrong','credentials');
         cy.get('#spanMessage').should('be.visible');
     });
 
