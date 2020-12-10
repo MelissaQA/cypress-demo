@@ -6,12 +6,12 @@ describe('Login Test Cases', ()=>{
 
     it('Should Login into OrangeHRM website', () =>{
         cy.login('admin','admin123');
-        cy.get('#welcome').should('be.visible');
+        cy.verifyWelcomeMessage()
     });
 
     it('Should not login into OrangeHRM website', ()=>{
         cy.login('wrong', 'credentials');
-        cy.get('#spanMessage').should('be.visible');
+        cy.verifyInvalidCredentialsMessage()
     });
 
 })

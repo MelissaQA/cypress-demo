@@ -29,6 +29,14 @@ Cypress.Commands.add('login', (username, password) => {
     cy.get('#btnLogin').click()
 })
 
+Cypress.Commands.add('verifyWelcomeMessage', () => {
+    cy.get('#welcome').should('be.visible');
+})
+
+Cypress.Commands.add('verifyInvalidCredentialsMessage', () => {
+    cy.get('#spanMessage').should('be.visible');
+})
+
 Cypress.Commands.add('updateMyInfo', () => {
     cy.get('#menu_pim_viewMyDetails').click();
     cy.get('#btnSave').click();

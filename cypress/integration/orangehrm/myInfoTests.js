@@ -14,6 +14,5 @@ describe('Edit My Info Test Cases', ()=>{
     it.only('Should update datebirth field', () =>{
         cy.get('#personal_DOB').should('be.enabled').click()
         cy.get('td').contains('17').click()
-        //cy.get('[data-handler="selectDay"]').contains('17').click()
     });
 })
